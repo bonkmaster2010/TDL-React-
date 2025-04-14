@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 400px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #6e7bff, #57b4c3);
+    border-radius: 15px;
+    padding: 20px;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+ul {
+    width: 100%;
+    padding: 0;
+    margin: 20px 0;
+    list-style: none;
+    transition: all 0.3s ease-in-out;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* New background color for completed task */
+li.completed {
+    background-color: lightgreen;
+    transition: background-color 2s ease-out;
+}
+
+.done,
+.delete {
+    margin-right: 5px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    border: none;
+    color: white;
+}
+
+.done {
+    background-color: rgb(2, 253, 2);
+}
+
+.delete {
+    background-color: rgb(255, 118, 118);
+}
+
+.done:hover{
+    background-color: rgb(88, 255, 88);
+}
+
+.delete:hover{
+    background-color: rgb(202, 66, 66);
+}
+
+.task-input {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.task-input input {
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid #ddd;
+    flex: 1;
+    margin-right: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.task-input input:focus {
+    border-color: #57b4c3;
+    box-shadow: 0 0 5px rgba(87, 180, 195, 0.7);
+}
+
+.task-input button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    background-color: #6e7bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.task-input button:hover {
+    background: #57b4c3;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Day Breakdown */
+
+
+.Note {
+    border: 2px solid #505ffd;
+    position: relative; /* To allow for positioning of the h2 */
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto; /* Center the Note container */
+    padding: 20px; /* Padding to provide space for text inside the Note */
+    box-sizing: border-box; /* Ensures padding is included in width calculation */
+}
+
+h2 {
+    color: white;
+    position: absolute;
+    top: -15px; /* Move the h2 outside the border */
+    left: 20px; /* Adjust the left position */
+    font-size: 1.5em;
+    margin: 0;
+    background: #505ffd; /* Make the h2 background match the border */
+    padding: 0 10px;
+    border-radius: 8px;
+    width: auto; /* Make the width based on content */
+}
+
+textarea {
+    width: calc(100% - 40px); /* Ensure textarea doesn't touch the border */
+    height: 150px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #505ffd;
+    font-size: 1em;
+    resize: none;
+    margin-top: 40px; /* Give space between the h2 and textarea */
+    box-sizing: border-box; /* Ensures padding is included in width calculation */
+}
