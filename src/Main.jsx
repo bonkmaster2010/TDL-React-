@@ -1,14 +1,13 @@
 import './TDL.css';
 import React, { useEffect } from 'react';
-import ParticlesBackground from './Particals.js'; // Make sure the import path is correct
+import ParticlesBackground from './Particals.js'; 
 
 function App() {
   let [task, setTask] = React.useState([]);
   let [newtask, setNewtask] = React.useState('');
-  let [textAreaContent, setTextAreaContent] = React.useState(''); // New state for textarea content
+  let [textAreaContent, setTextAreaContent] = React.useState(''); 
   let radio = false;
 
-  // Load tasks from local storage when the app loads
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
@@ -17,21 +16,18 @@ function App() {
     
     const storedTextArea = localStorage.getItem('textAreaContent');
     if (storedTextArea) {
-      setTextAreaContent(storedTextArea); // Load textarea content from local storage
+      setTextAreaContent(storedTextArea);
     }
   }, []);
 
-  // Save tasks to local storage whenever task list changes
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(task));
   }, [task]);
 
-  // Save textarea content to local storage whenever it changes
   useEffect(() => {
     localStorage.setItem('textAreaContent', textAreaContent);
   }, [textAreaContent]);
 
-  // Add task function
   function addTask() {
     if (newtask !== '') {
       setTask(prev => [...prev, { task: newtask, completed: false }]);
@@ -46,14 +42,12 @@ function App() {
 
   // Complete task function
   function completeTask(index) {
-    // Add 'completed' property to the task
     setTask(prevTasks =>
       prevTasks.map((task, i) =>
         i === index ? { ...task, completed: true } : task
       )
     );
 
-    // Remove task after 2 seconds
     setTimeout(() => {
       setTask(task.filter((e, i) => i !== index));
     }, 2000);
@@ -61,7 +55,7 @@ function App() {
 
   return (
     <div className='app'>
-      <ParticlesBackground /> {/* This will render the particles */}
+      <ParticlesBackground />
       
       <div className="cont">
         <div className="task-input">
@@ -73,7 +67,6 @@ function App() {
           />
           <button onClick={addTask}>Add Task</button>
         </div>
-
         <ul>
           {task.map((task, index) => (
             <li

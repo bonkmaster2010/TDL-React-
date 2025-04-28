@@ -27,6 +27,8 @@ ul {
     width: 100%;
     padding: 0;
     margin: 20px 0;
+    overflow: scroll;
+    max-height: 350px;
     list-style: none;
     transition: all 0.3s ease-in-out;
 }
@@ -41,7 +43,6 @@ li {
     margin-bottom: 10px;
 }
 
-/* New background color for completed task */
 li.completed {
     background-color: lightgreen;
     transition: background-color 2s ease-out;
@@ -64,11 +65,11 @@ li.completed {
     background-color: rgb(255, 118, 118);
 }
 
-.done:hover{
+.done:hover {
     background-color: rgb(88, 255, 88);
 }
 
-.delete:hover{
+.delete:hover {
     background-color: rgb(202, 66, 66);
 }
 
@@ -122,38 +123,85 @@ li.completed {
 
 /* Day Breakdown */
 
-
 .Note {
     border: 2px solid #505ffd;
-    position: relative; /* To allow for positioning of the h2 */
+    position: relative; 
     max-width: 600px;
     width: 100%;
-    margin: 0 auto; /* Center the Note container */
-    padding: 20px; /* Padding to provide space for text inside the Note */
-    box-sizing: border-box; /* Ensures padding is included in width calculation */
+    margin: 0 auto; 
+    padding: 20px; 
+    box-sizing: border-box; 
 }
 
 h2 {
     color: white;
     position: absolute;
-    top: -15px; /* Move the h2 outside the border */
-    left: 20px; /* Adjust the left position */
+    top: -15px; 
+    left: 20px; 
     font-size: 1.5em;
     margin: 0;
-    background: #505ffd; /* Make the h2 background match the border */
+    background: #505ffd; 
     padding: 0 10px;
     border-radius: 8px;
-    width: auto; /* Make the width based on content */
+    width: auto;
 }
 
 textarea {
-    width: calc(100% - 40px); /* Ensure textarea doesn't touch the border */
+    width: calc(100% - 40px); 
     height: 150px;
     padding: 10px;
     border-radius: 8px;
     border: 2px solid #505ffd;
     font-size: 1em;
     resize: none;
-    margin-top: 40px; /* Give space between the h2 and textarea */
-    box-sizing: border-box; /* Ensures padding is included in width calculation */
+    margin-top: 40px; 
+    box-sizing: border-box;
+}
+
+/* Mobile Support */
+@media (max-width: 480px) {
+    body {
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .cont {
+        width: 100%;
+        min-height: 90vh;
+        padding: 15px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .task-input button {
+        width: 100%;
+    }
+
+    ul {
+        max-height: 300px;
+    }
+
+    .Note {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        top: -12px;
+        left: 15px;
+    }
+
+    textarea {
+        height: 120px;
+    }
 }
